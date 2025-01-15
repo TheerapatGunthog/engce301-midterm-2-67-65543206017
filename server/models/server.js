@@ -17,12 +17,11 @@ class Server {
       this.key = "server.key";
       this.cert = "server.crt";
     }
-    else{
-      if (process.env.NODE_ENV == " production"){
-        this.key = "/etc/ssl/server.key";
-        this.cert = "/etc/ssl/server.crt";
-      }
+    else if (process.env.NODE_ENV == "production"){
+      this.key = "/etc/ssl/server.key";
+      this.cert = "/etc/ssl/server.crt";
     }
+  
 
     // Load SSL Certificates
     const sslOptions = {
