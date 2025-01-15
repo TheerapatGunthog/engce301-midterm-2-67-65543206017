@@ -18,8 +18,10 @@ class Server {
       this.cert = "server.crt";
     }
     else{
-      this.key = "/etc/ssl/server.key";
-      this.cert = "/etc/ssl/server.crt";
+      if (process.env.NODE_ENV == " production"){
+        this.key = "/etc/ssl/server.key";
+        this.cert = "/etc/ssl/server.crt";
+      }
     }
 
     // Load SSL Certificates
